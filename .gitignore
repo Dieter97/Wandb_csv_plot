@@ -1,0 +1,7 @@
+/.vscode
+/Accuracy_vs_FLOPs.csv
+/Accuracy_vs_Parameters.csv
+/Accuracy_vs_Pruning_Rate.csv
+/FLOPS.csv
+/output
+/PARAMETERS.csv
