@@ -75,7 +75,7 @@ if __name__ == "__main__":
     plt.xlabel(XLABEL)
     plt.ylabel(YLABEL)
     plt.title(TITLE)
-    plt.legend(fontsize="x-small")
+    plt.legend()
     plt.tight_layout()
     plt.savefig(OUTPUT)
     print(f'{OUTPUT} saved!')
