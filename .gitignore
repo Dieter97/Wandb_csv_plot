@@ -5,3 +5,6 @@
 /FLOPS.csv
 /output
 /PARAMETERS.csv
+*.csv
+*.svg
+*.pdf
