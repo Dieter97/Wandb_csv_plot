@@ -65,6 +65,19 @@ if __name__ == "__main__":
                     DATA[Y_ROW_NAMES[y_column]][sample[X_COLUMN_IDX]] = sample[y_column]
 
     # Plot all data
+
+    SMALL_SIZE = 8
+    MEDIUM_SIZE = 11
+    BIGGER_SIZE = 13
+
+    plt.rc('font', size=MEDIUM_SIZE)          # controls default text sizes
+    plt.rc('axes', titlesize=BIGGER_SIZE)     # fontsize of the axes title
+    plt.rc('axes', labelsize=BIGGER_SIZE)    # fontsize of the x and y labels
+    plt.rc('xtick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
+    plt.rc('ytick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
+    plt.rc('legend', fontsize=MEDIUM_SIZE)    # legend fontsize
+    plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
     plt.figure(figsize=(X_SIZE,Y_SIZE))
     for column in DATA:
         lists = sorted(DATA[column].items()) # sorted by key, return a list of tuples
