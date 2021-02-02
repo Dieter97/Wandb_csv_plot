@@ -13,6 +13,9 @@ if __name__ == "__main__":
     parser.add_argument("-xl", "--xlabel", help="Plot X-axis label", type=str, default="Pruning Rate (%)")
     parser.add_argument("-ys", "--ysize", help="Plot Y Size", type=int, default=4)
     parser.add_argument("-xs", "--xsize", help="Plot X Size", type=int, default=5)
+    parser.add_argument("-fa", "--fontaxes", help="Font Size of the axes and legend", type=int, default=11)
+    parser.add_argument("-ft", "--fonttitle", help="Font Size of the title", type=int, default=13)
+    parser.add_argument("-l", "--legend", help="Plot the legend", default=False, action='store_const', const=True)
 
     args = parser.parse_args()
     # Parse parameters
@@ -66,17 +69,16 @@ if __name__ == "__main__":
 
     # Plot all data
 
-    SMALL_SIZE = 8
-    MEDIUM_SIZE = 11
-    BIGGER_SIZE = 13
+    AXES_SIZE = args.fontaxes
+    TITLE_SIZE = args.fonttitle
 
-    plt.rc('font', size=MEDIUM_SIZE)          # controls default text sizes
-    plt.rc('axes', titlesize=BIGGER_SIZE)     # fontsize of the axes title
-    plt.rc('axes', labelsize=BIGGER_SIZE)    # fontsize of the x and y labels
-    plt.rc('xtick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
-    plt.rc('ytick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
-    plt.rc('legend', fontsize=MEDIUM_SIZE)    # legend fontsize
-    plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+    plt.rc('font', size=AXES_SIZE)          # controls default text sizes
+    plt.rc('axes', titlesize=AXES_SIZE)     # fontsize of the axes title
+    plt.rc('axes', labelsize=AXES_SIZE)    # fontsize of the x and y labels
+    plt.rc('xtick', labelsize=AXES_SIZE)    # fontsize of the tick labels
+    plt.rc('ytick', labelsize=AXES_SIZE)    # fontsize of the tick labels
+    plt.rc('legend', fontsize=AXES_SIZE)    # legend fontsize
+    plt.rc('figure', titlesize=TITLE_SIZE)  # fontsize of the figure title
 
     plt.figure(figsize=(X_SIZE,Y_SIZE))
     for column in DATA:
@@ -88,7 +90,8 @@ if __name__ == "__main__":
     plt.xlabel(XLABEL)
     plt.ylabel(YLABEL)
     plt.title(TITLE)
-    plt.legend()
+    if args.legend:
+        plt.legend()
     plt.tight_layout()
     plt.savefig(OUTPUT)
     print(f'{OUTPUT} saved!')

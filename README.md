@@ -12,7 +12,8 @@ pip install -r requirement.txt
 
 Tool help: 
 ```
-usage: wandb_csv_plot.py [-h] [-t TYPE] [-yl YLABEL] [-xl XLABEL] [-ys YSIZE] [-xs XSIZE] input
+python wandb_csv_plot.py -h
+usage: wandb_csv_plot.py [-h] [-t TYPE] [-yl YLABEL] [-xl XLABEL] [-ys YSIZE] [-xs XSIZE] [-fa FONTAXES] [-ft FONTTITLE] [-l] input
 
 Wandb CSV matplotlib tool
 
@@ -30,4 +31,16 @@ optional arguments:
                         Plot Y Size
   -xs XSIZE, --xsize XSIZE
                         Plot X Size
+  -fa FONTAXES, --fontaxes FONTAXES
+                        Font Size of the axes and legend
+  -ft FONTTITLE, --fonttitle FONTTITLE
+                        Font Size of the title
+  -l, --legend          Plot the legend
+```
+
+Examples:
+
+```
+python3 wandb_csv_plot.py Accuracy_vs_Parameters.csv -yl "Accuracy (%)" -xl "PARAMETERS" -t pdf
+python3 wandb_csv_plot.py Conv_Layer_32.csv -t svg -fa 12 -l
 ```
